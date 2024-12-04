@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: SEE LICENSE IN LICENSE
+// SPDX-License-Identifier: unlicense
 pragma solidity ^0.8.17;
 
 contract Play {
@@ -11,3 +11,4 @@ contract Play {
     }
 }
 
+// do you have any blockchain idea?
