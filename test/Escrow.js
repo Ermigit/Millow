@@ -6,5 +6,6 @@ const tokens = (n) => {
 }
 
 describe('Escrow', () => {
-
+    newItemId
+    console.log(newItemId);
 })
