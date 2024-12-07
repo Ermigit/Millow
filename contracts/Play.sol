@@ -1,14 +1,31 @@
 // SPDX-License-Identifier: unlicense
 pragma solidity ^0.8.17;
 
-contract Play {
-    uint public x;
-    constructor() {
-     x = 1;  
+
+
+contract Play{
+     
+function _factorial(uint n)public  pure returns (uint ans)
+  {
+   if(n == 1 || n == 0)
+     ans = 1;
+  
+else {
+    ans=1;
+    for(uint i=2; i<=n; i++)
+    {
+        ans*=i;
     }
-    function setX(uint _x) public{
-        x = _x;
+}}
+
+function evenOdd(uint number) public pure returns(string memory s)
+{   if(number%2 == 0)
+    {
+        s="Even";
+    }
+    else{
+     s="Odd";
     }
 }
-
-// do you have any blockchain idea?
+   
+}

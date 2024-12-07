@@ -2,7 +2,11 @@
 async function main() {
     const [deployer, signer1, signer2, ...others] = await ethers.getSigners();
     // Use the desired signer (e.g., signer1)
-    //const lastsigner = others[others.length - 1];
+    const lastsigner = others[others.length - 2];
+     
+    const nonce = await ethers.provider.getTransactionCount(deployer.address);
+    console.log("Nonce before deployment:", nonce);
+
     const RealEstateFactory = await ethers.getContractFactory("RealEstate", deployer);
     const RealEstate = await RealEstateFactory.deploy();
   
@@ -10,6 +14,14 @@ async function main() {
 
     console.log("Deployed by account:", deployer.address);
     console.log("Play contract deployed to:", RealEstate.address);
+
+
+
+console.log("###############################");
+const nonce_after_deployment = await ethers.provider.getTransactionCount(lastsigner.address);
+console.log("Nonce after deployment:", nonce_after_deployment);
+
+
   }
   
   

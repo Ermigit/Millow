@@ -38,6 +38,7 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "@openzeppelin/contracts": "^4.7.3",
+    "chai-ethers": "^0.0.1",
     "hardhat": "^2.22.17"
   }
 }
