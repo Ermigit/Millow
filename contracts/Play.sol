@@ -30,7 +30,7 @@ function evenOdd(uint number) public pure returns(string memory s)
     else{
      s="Odd";
     }
-    return s;
+// return s;
 }
    
 }
