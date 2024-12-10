@@ -48,5 +48,3 @@ async function getSignerBalances() {
  getSignerBalances().catch(console.error);
  
 
-
-  

@@ -8,7 +8,6 @@ interface IERC721 {
         uint256 _id
     ) external;
 }
-
 contract Escrow {
      address public nftAddress;
     address payable public seller;

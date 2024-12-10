@@ -4,7 +4,6 @@ const { ethers } = require('hardhat');
 const tokens = (n) => {
     return ethers.utils.parseUnits(n.toString(), 'ether')
 }
-
 describe('Escrow', () => {
     let buyer, seller, inspector, lender
     let realEstate, escrow
