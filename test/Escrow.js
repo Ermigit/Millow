@@ -33,7 +33,7 @@ describe('Escrow', () => {
          transaction= await realEstate.connect(seller).approve(escrow.address,1);   //###  what is the 1 argumet here? 
          await transaction.wait()
 
-         //List property
+         //List property 
          transaction = await escrow.connect(seller).list(1);
          await transaction.wait(); 
          
