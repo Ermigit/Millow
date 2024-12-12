@@ -84,6 +84,15 @@ describe('Escrow', () => {
             expect(result.toString()).to.be.equal(tokens(5).toString()); //### try to understand why Geregry's code worked without toString()
         })
     })
+    describe('Deposits', () => {
+        
+        it('Updates contract balance', async () => {
+            const transaction = await escrow.connect(buyer).depositEarnest(1,{value: tokens(5)})
+            await transaction.wait();
+            const result= await escrow.getBalance();
+            expect(result.toString()).to.be.equal(tokens(5).toString());
+        })
+    })
   
     
 })
