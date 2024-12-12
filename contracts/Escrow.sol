@@ -15,7 +15,11 @@ contract Escrow {
     address public lender;
 
     modifier onlySeller() {
-        require(msg.sender== seller, "Only seller can call this function");
+        require(msg.sender == seller, "Only seller can call this function");
+      _;
+      }
+    modifier onlyBuyer(uint256 _nftID) {
+        require(msg.sender == buyer[_nftID], "Only buyer can call this function");
       _;
       }
      
@@ -45,6 +49,11 @@ contract Escrow {
         buyer[_nftID]= _buyer;
 
 
+    }
+
+    function depositEarnest(uint256 _nftID) public payable onlyBuyer(_nftID){
+        require(msg.value >= escrowAmount[_nftID], "Insufficient funds");
+      
     }
 
 }

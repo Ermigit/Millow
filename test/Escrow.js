@@ -84,6 +84,6 @@ describe('Escrow', () => {
             expect(result.toString()).to.be.equal(tokens(5).toString()); //### try to understand why Geregry's code worked without toString()
         })
     })
-
+  
     
 })
