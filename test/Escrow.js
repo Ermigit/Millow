@@ -93,6 +93,34 @@ describe('Escrow', () => {
             expect(result.toString()).to.be.equal(tokens(5).toString());
         })
     })
+    describe('Inspection', () => {
+        
+        it('Upadates Inspection status', async () => {
+            const transaction = await escrow.connect(inspector).updateInspectionStatus(1,true)
+            await transaction.wait();
+            const result= await escrow.inspectionPassed(1);
+            expect(result).to.be.equal(true);
+        })
+    })
+    describe('Approval', () => {
+        
+        it('Update Approval status', async () => {
+            let transaction = await escrow.connect(buyer).approveSale(1)
+            await transaction.wait();
+
+             transaction = await escrow.connect(seller).approveSale(1)
+            await transaction.wait();
+
+             transaction = await escrow.connect(lender).approveSale(1)
+            await transaction.wait();
+
+            expect(await escrow.approval(1,buyer.address)).to.be.equal(true);
+            expect(await escrow.approval(1,seller.address)).to.be.equal(true);
+            expect(await escrow.approval(1,lender.address)).to.be.equal(true);
+            
+
+        })
+    })
   
     
 })
