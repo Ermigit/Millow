@@ -15,12 +15,21 @@ import config from './config.json';
 
 function App() {
 
+  const loadBlockchainData = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    console.log(provider)
+  }
+  
+   useEffect(()=>{
+    loadBlockchainData()
+   }, [])
+
   return (
     <div>
 
       <div className='cards__section'>
 
-        <h3>Welcome to Millow</h3>
+        <h3>Welcome to Ermias nigatu </h3>
 
       </div>
 
