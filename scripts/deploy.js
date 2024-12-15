@@ -6,6 +6,7 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 
+
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), 'ether')
 }
@@ -42,7 +43,7 @@ async function main() {
 
   for (let i = 0; i < 3; i++) {
     // Approve properties...
-    let transaction = await realEstate.connect(seller).approve(escrow.address, i + 1)
+    let transaction = await realEstate.connect(seller).approve(escrow.address, i + 1) //### there is no approve function in escow, it it from the inherited contract?
     await transaction.wait()
   }
 
