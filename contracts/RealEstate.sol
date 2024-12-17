@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 import "hardhat/console.sol";
 
-contract RealEstate is ERC721URIStorage{
+contract RealEstate is ERC721URIStorage{ 
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 

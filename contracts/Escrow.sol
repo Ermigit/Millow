@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-interface IERC721 {
+interface IERC721 {  //### why we use this interface here
     function transferFrom(
         address _from,
         address _to,
@@ -62,7 +62,7 @@ contract Escrow {
       
     }
     
-     receive() external payable {} //### do more research about this
+     receive() external payable {} //The receive() function is useful for accepting direct Ether transfers to a contract when no other function is explicitly invoked
 
      function getBalance() public view returns(uint)
      {
@@ -95,7 +95,6 @@ contract Escrow {
 
 
      }
-
 
 
      function cancleSale(uint256 _nftID) public onlySeller
