@@ -8,22 +8,27 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /// @dev Inherits `Ownable` from OpenZeppelin to restrict certain functions to the contract owner.
 contract HelloMessage is Ownable {
     /// @notice The message stored on-chain.
-    string public message = "Hell0";
+    string private message = "Hell0";
 
     /// @dev Emitted when the message is updated.
+    /// @param oldMessage The old message before the update.
     /// @param newMessage The updated message.
-    event MessageUpdated(string newMessage);
+    event MessageChanged(string oldMessage, string newMessage);
+
+    error MessageEmpty();
+    error MessageNotChanged();
 
     /// @notice Updates the stored message.
     /// @dev Only callable by the owner of the contract.
     /// @param _msg The new message to store.
     function updateMessage(string memory _msg) public onlyOwner {
-        require(bytes(_msg).length > 0, "Message cannot be empty!");
-        //require(keccak256(abi.encodePacked(message)) != keccak256(abi.encodePacked(_msg)), "There is nothing changed!");
-        require(keccak256(bytes(message)) != keccak256(bytes(_msg)), "There is nothing changed!"); // more optimized as solidity is now supprting string comarition natively
+        if (bytes(_msg).length == 0) revert MessageEmpty();
+        if (keccak256(bytes(message)) == keccak256(bytes(_msg))) revert MessageNotChanged();
+    
 
+        string memory oldMessage = message;
         message = _msg;
-        emit MessageUpdated(_msg);
+        emit MessageChanged(oldMessage, _msg);
     }
 
     /// @notice Retrieves the current stored message.
