@@ -91,7 +91,7 @@ const Home = ({ home, provider, account, escrow, togglePop }) => {
 
         // Lender sends funds to contract...
         const lendAmount = (await escrow.purchasePrice(home.id) - await escrow.escrowAmount(home.id))
-        await signer.sendTransaction({ to: escrow.address, value: lendAmount.toString(), gasLimit: 60000 })
+        await signer.sendTransaction({ to: escrow.address, value: lendAmount.toString(), gasLimit: 200000  })
 
         setHasLended(true)
     }
